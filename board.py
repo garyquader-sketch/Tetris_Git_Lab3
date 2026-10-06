@@ -1,8 +1,9 @@
 import math
 import random
 import os
+from pathlib import Path
 
-BEST_SCORE_FILE_NAME = "best_score"
+BEST_SCORE_FILE_NAME = Path(__file__).resolve().with_name("best_score")
 
 block_shapes = [
     # T Block
@@ -184,7 +185,7 @@ class Board:
     def _read_best_score():
         """Read best score from file"""
 
-        if os.path.exists(f"./{BEST_SCORE_FILE_NAME}"):
+        if os.path.exists(BEST_SCORE_FILE_NAME):
             with open(BEST_SCORE_FILE_NAME) as file:
                 try:
                     return int(file.read())
