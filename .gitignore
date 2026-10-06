@@ -7,3 +7,6 @@ __pycache__/
 high_scores.json
 high_scores.json.tmp
 best_score
+
+# Ignore caches created when checking the project.
+.pytest_cache/
