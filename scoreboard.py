@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from datetime import datetime
 
+# Store records beside this module regardless of the launch directory.
 SCORE_FILE = Path(__file__).resolve().with_name("high_scores.json")
 
 
