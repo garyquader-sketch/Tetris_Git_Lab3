@@ -528,6 +528,7 @@ if __name__ == "__main__":
                         game_board.move_block("right")
                     elif key_event == ord(" "):
                         game_board.drop()
+                # Pause stops falling; the existing elapsed-time counter keeps running.
                 if key_event == ord("p"):
                     pause = not pause
                     if game_window:
