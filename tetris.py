@@ -446,7 +446,8 @@ pause = False
 game_board = board.Board(BOARD_HEIGHT, BOARD_WIDTH)
 game_board.start()
 
-# === УЛУЧШЕНИЕ 1: Добавляем время старта === game_board.start_time = time.time()
+# === УЛУЧШЕНИЕ 1: Добавляем время старта ===
+game_board.start_time = time.time()
 # === КОНЕЦ УЛУЧШЕНИЯ 1 ===
 
 old_score = game_board.score
