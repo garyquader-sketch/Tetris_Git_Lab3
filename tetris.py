@@ -448,7 +448,7 @@ game_board.start()
 
 old_score = game_board.score
 game_over_shown = False
-last_block_type = None  # Для отслеживания нового блока
+last_block = None  # Считаем экземпляры фигур, включая одинаковые подряд
 
 # Глобальные ссылки на окна
 game_window = None
@@ -479,6 +479,7 @@ if __name__ == "__main__":
             draw_status_window(status_window)
 
         start = time.time()
+        last_status_second = -1
         quit_game = False
 
         while not quit_game:
@@ -539,6 +540,9 @@ if __name__ == "__main__":
                     # === УЛУЧШЕНИЕ 2: Сбрасываем статистику блоков ===
                     for key in block_stats:
                         block_stats[key] = 0
+                    last_block = None
+                    old_score = -1
+                    start = time.time()
                     # === КОНЕЦ УЛУЧШЕНИЙ ===
                     if game_window:
                         game_window.nodelay(True)
@@ -553,14 +557,20 @@ if __name__ == "__main__":
             # === УЛУЧШЕНИЕ 2: Обновляем статистику блоков ===
             if game_board.current_block and hasattr(game_board.current_block, 'block_type'):
                 current_type = game_board.current_block.block_type
-                if current_type != last_block_type:
+                if game_board.current_block is not last_block:
                     block_name = get_block_type_by_index(current_type)
                     if block_name in block_stats:
                         block_stats[block_name] += 1
                         if status_window:
                             draw_status_window(status_window)
-                    last_block_type = current_type
+                    last_block = game_board.current_block
             # === КОНЕЦ УЛУЧШЕНИЯ 2 ===
+
+            status_second = int(time.time() - game_board.start_time)
+            if status_second != last_status_second and status_window:
+                draw_status_window(status_window)
+                last_status_second = status_second
+            time.sleep(0.01)
 
             if old_score != game_board.score and status_window:
                 draw_status_window(status_window)
