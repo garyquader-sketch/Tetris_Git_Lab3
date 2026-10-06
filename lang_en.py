@@ -1,0 +1,22 @@
+messages = {
+    "GAME OVER": "GAME OVER",
+    "Enter - play again": "Enter - play again",
+    "Pause": "PAUSE",
+    "Score": "Score",
+    "Lines": "Lines",
+    "Level": "Level",
+    "Best Score": "Best Score",
+    "Move": "Move",
+    "Drop": "Drop",
+    "Rotate": "Rotate",
+    "Quit": "Quit",
+    "High Scores": "HIGH SCORES",
+    "Name": "Name",
+    "Points": "Points",
+    "Date": "Date",
+    "Time": "Time",
+    "Press H for High Scores": "Press H for High Scores",
+    "Enter your name": "Enter your name",
+    "No scores yet": "No scores yet",
+    "Back to game": "Press any key to continue"
+}
