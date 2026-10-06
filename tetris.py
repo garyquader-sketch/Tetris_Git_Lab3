@@ -41,6 +41,7 @@ def update_block_stats(block):
             block_stats[block_name] = block_stats.get(block_name, 0) + 1
 # === КОНЕЦ УЛУЧШЕНИЯ 2 ===
 
+# The original laboratory uses an 11 by 17 playing field.
 BOARD_WIDTH = 11
 BOARD_HEIGHT = 17
 
