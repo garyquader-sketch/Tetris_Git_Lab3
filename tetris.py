@@ -52,6 +52,7 @@ GAME_WINDOW_HEIGHT = BOARD_HEIGHT + 2
 HELP_WINDOW_WIDTH = 30
 HELP_WINDOW_HEIGHT = 10
 
+# The status panel includes timer, piece counters and the next piece.
 STATUS_WINDOW_HEIGHT = 24  # Увеличен для статистики
 STATUS_WINDOW_WIDTH = HELP_WINDOW_WIDTH
 
