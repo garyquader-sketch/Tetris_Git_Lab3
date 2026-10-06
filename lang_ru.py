@@ -20,3 +20,5 @@ messages = {
     "No scores yet": "Пока нет результатов",
     "Back to game": "Нажмите любую клавишу"
 }
+
+messages.update({'Timer': 'Время', 'Block Stats': 'Фигуры', 'Total': 'Всего', 'High Scores hint': 'Рекорды', 'Made with': 'Создано с'})

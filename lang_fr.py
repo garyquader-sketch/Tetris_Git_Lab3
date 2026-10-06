@@ -20,3 +20,5 @@ messages = {
     "No scores yet": "Aucun score",
     "Back to game": "Appuyez sur une touche"
 }
+
+messages.update({'Timer': 'Temps', 'Block Stats': 'Pièces', 'Total': 'Total', 'High Scores hint': 'Scores', 'Made with': 'Créé avec'})

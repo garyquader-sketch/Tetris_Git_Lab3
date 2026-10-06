@@ -20,3 +20,5 @@ messages = {
     "No scores yet": "Keine Ergebnisse",
     "Back to game": "Drücke eine Taste zum Fortfahren"
 }
+
+messages.update({'Timer': 'Zeit', 'Block Stats': 'Figuren', 'Total': 'Gesamt', 'High Scores hint': 'Bestenliste', 'Made with': 'Erstellt mit'})

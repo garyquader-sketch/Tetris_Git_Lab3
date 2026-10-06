@@ -20,3 +20,5 @@ messages = {
     "No scores yet": "Nessun punteggio",
     "Back to game": "Premi un tasto per continuare"
 }
+
+messages.update({'Timer': 'Tempo', 'Block Stats': 'Figure', 'Total': 'Totale', 'High Scores hint': 'Punteggi', 'Made with': 'Creato con'})

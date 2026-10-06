@@ -227,12 +227,12 @@ def draw_status_window(window):
             elapsed = int(time.time() - game_board.start_time)
             minutes = elapsed // 60
             seconds = elapsed % 60
-            time_text = f"Time: {minutes:02}:{seconds:02}"
+            time_text = f"{messages['Timer']}: {minutes:02}:{seconds:02}"
             window.addstr(5, 2, time_text)
         # === КОНЕЦ УЛУЧШЕНИЯ 1 ===
 
         # === УЛУЧШЕНИЕ 2: Статистика блоков ===
-        window.addstr(7, 2, "Block Stats:", curses.A_BOLD)
+        window.addstr(7, 2, messages["Block Stats"] + ":", curses.A_BOLD)
         y_offset = 8
         total = 0
         for block_type, count in block_stats.items():
@@ -245,7 +245,7 @@ def draw_status_window(window):
                     pass
         if total > 0:
             try:
-                window.addstr(y_offset, 2, f"Total: {total}")
+                window.addstr(y_offset, 2, f"{messages['Total']}: {total}")
             except:
                 pass
         # === КОНЕЦ УЛУЧШЕНИЯ 2 ===
@@ -285,7 +285,7 @@ def draw_help_window():
         window.addstr(5, 2, f"{messages['Quit']}    - q")
 
         if scoreboard:
-            window.addstr(6, 2, f"High Scores - H")
+            window.addstr(6, 2, f"{messages['High Scores hint']} - H")
 
         window.refresh()
     except:
@@ -311,7 +311,7 @@ def draw_footer():
     """Draw footer"""
     try:
         window = curses.newwin(1, FOOTER_WIDTH, TITLE_HEIGHT + GAME_WINDOW_HEIGHT + 1, LEFT_MARGIN)
-        title = "Made with"
+        title = messages["Made with"]
         col_pos = int((GAME_WINDOW_WIDTH + STATUS_WINDOW_WIDTH - len(title) + 1) / 2)
         window.addstr(0, col_pos, title, curses.color_pair(98))
         window.addstr(0, col_pos + len(title) + 1, "❤", curses.color_pair(97))
