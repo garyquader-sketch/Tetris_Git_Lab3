@@ -47,17 +47,17 @@ BOARD_HEIGHT = 17
 GAME_WINDOW_WIDTH = 2 * BOARD_WIDTH + 2
 GAME_WINDOW_HEIGHT = BOARD_HEIGHT + 2
 
-HELP_WINDOW_WIDTH = 22
+HELP_WINDOW_WIDTH = 30
 HELP_WINDOW_HEIGHT = 10
 
-STATUS_WINDOW_HEIGHT = 18  # Увеличен для статистики
+STATUS_WINDOW_HEIGHT = 24  # Увеличен для статистики
 STATUS_WINDOW_WIDTH = HELP_WINDOW_WIDTH
 
 TITLE_HEIGHT = 6
 
 LEFT_MARGIN = 3
 
-TITLE_WIDTH = FOOTER_WIDTH = 50
+TITLE_WIDTH = FOOTER_WIDTH = 62
 
 # Выбор языка (0-английский, 1-русский, 2-немецкий, 3-французский, 4- итальянский)
 LANGUAGE = 1
@@ -81,16 +81,19 @@ def init_colors():
     try:
         curses.start_color()
 
-        curses.init_pair(99, 8, curses.COLOR_BLACK)
+        curses.init_pair(99, curses.COLOR_WHITE, curses.COLOR_BLACK)
         curses.init_pair(98, curses.COLOR_CYAN, curses.COLOR_BLACK)
         curses.init_pair(97, curses.COLOR_RED, curses.COLOR_BLACK)
         curses.init_pair(96, curses.COLOR_BLACK, curses.COLOR_CYAN)
         curses.init_pair(95, curses.COLOR_BLACK, curses.COLOR_WHITE)
         curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_BLUE)
-        curses.init_pair(2, curses.COLOR_BLACK, 13)
+        curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_MAGENTA)
         curses.init_pair(3, curses.COLOR_BLACK, curses.COLOR_YELLOW)
         curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_GREEN)
         curses.init_pair(5, curses.COLOR_BLACK, curses.COLOR_MAGENTA)
+
+        curses.init_pair(6, curses.COLOR_BLACK, curses.COLOR_RED)
+        curses.init_pair(7, curses.COLOR_BLACK, curses.COLOR_CYAN)
 
         # === УЛУЧШЕНИЕ 3: Цвета для уровней ===
         curses.init_pair(10, curses.COLOR_GREEN, curses.COLOR_BLACK)      # 1-3 уровень
@@ -457,6 +460,9 @@ status_window = None
 if __name__ == "__main__":
     try:
         scr = curses.initscr()
+        height, width = scr.getmaxyx()
+        if height < 40 or width < 80:
+            raise RuntimeError("Увеличьте терминал минимум до 80 столбцов и 40 строк")
         curses.noecho()
         curses.cbreak()
         curses.curs_set(0)
@@ -577,6 +583,7 @@ if __name__ == "__main__":
                 old_score = game_board.score
 
     except Exception as e:
-        pass
+        curses.endwin()
+        print(f"Ошибка запуска игры: {e}")
     finally:
         curses.endwin()
