@@ -48,6 +48,7 @@ BOARD_HEIGHT = 17
 GAME_WINDOW_WIDTH = 2 * BOARD_WIDTH + 2
 GAME_WINDOW_HEIGHT = BOARD_HEIGHT + 2
 
+# Leave enough room for the complete localized help lines.
 HELP_WINDOW_WIDTH = 30
 HELP_WINDOW_HEIGHT = 10
 
